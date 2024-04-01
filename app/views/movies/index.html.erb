@@ -1,16 +1,24 @@
-<%= form_with(url: root_path, method: :get) do |form| %>
-  <%= form.text_field :looking_for, placeholder: 'Movie Title...', size: "40*40" %>
-  <%= form.submit 'search' %>
-<% end %>
+<div class="container">
+  <%= form_with(url: root_path, method: :get) do |form| %>
+    <%= form.text_field :looking_for, placeholder: 'Movie Title...', size: "40*40" %>
+    <%= form.submit 'search', class: "btn btn-success" %>
+  <% end %>
 
-<% @movies_datas.each do |movie| %>
-  <div>
-    <%= movie['title'] %>
-    <% if movie['poster_path'] %>
-      <%= image_tag 'https://image.tmdb.org/t/p/w200' + movie['poster_path'] %>
-    <% else %>
-      <p>ないよ^^</p>
-     <% end %>
-    <%= movie['overview'] %>
+  <% @movies_datas.each do |movie| %>
+    <div class="row mt-3">
+      <div class="col-3">
+        <% if movie['poster_path'] %>
+          <%= image_tag 'https://image.tmdb.org/t/p/w200' + movie['poster_path'] %>
+        <% else %>
+          <p>ないよ^^</p>
+        <% end %>
+      </div>
+      <div class="col-3">
+        <%= movie['title'] %>
+      </div>
+      <div>
+        <%= movie['overview'] %>
+      </div>
+    <% end %>
   </div>
-<% end %>
+</div>
