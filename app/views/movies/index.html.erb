@@ -1,4 +1,5 @@
 <div class="container">
+
   <%= form_with(url: root_path, method: :get) do |form| %>
     <%= form.text_field :looking_for, placeholder: 'Movie Title...', size: "40*40" %>
     <%= form.submit 'search', class: "btn btn-success" %>
@@ -16,7 +17,7 @@
       <div class="col-3">
         <%= movie['title'] %>
       </div>
-      <div>
+      <div class="col-3">
         <%= movie['overview'] %>
       </div>
     <% end %>
